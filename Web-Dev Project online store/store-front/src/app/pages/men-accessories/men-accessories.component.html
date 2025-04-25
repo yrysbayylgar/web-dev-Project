@@ -1,0 +1,43 @@
+<div class="main-container">
+  <div class="breadcrumb">
+    <a routerLink="/">Home</a> /
+    <a routerLink="/men">Men</a> /
+    <a routerLink="/men/accessories">Accessories</a>
+  </div>
+
+  <h1 class="page-title">MEN'S ACCESSORIES</h1>
+
+  <div class="container">
+    <div class="products-container">
+      <div class="sorting">
+        <div class="sort-dropdown">
+          <button (click)="toggleSortOptions()" class="sort-button">
+            {{ getSortLabel() }} <span class="arrow-down">▼</span>
+          </button>
+          <div class="sort-options" *ngIf="showSortOptions">
+            <div class="sort-option" (click)="sortProducts('featured')">Featured</div>
+            <div class="sort-option" (click)="sortProducts('price-asc')">Price: Low to High</div>
+            <div class="sort-option" (click)="sortProducts('price-desc')">Price: High to Low</div>
+            <div class="sort-option" (click)="sortProducts('name-asc')">Name: A to Z</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="products-grid">
+        <div *ngFor="let product of products" class="product-card">
+          <div class="product-image">
+            <img [src]="product.image" [alt]="product.name">
+            <button class="wishlist-btn">♡</button>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">{{ product.name }}</h3>
+            <div class="product-colors">
+              {{ product.colors }} Color{{ product.colors !== 1 ? 's' : '' }}
+            </div>
+            <div class="product-price">{{ product.price | number }}₮</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

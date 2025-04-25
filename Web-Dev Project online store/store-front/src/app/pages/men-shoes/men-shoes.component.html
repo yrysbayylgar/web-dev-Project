@@ -1,0 +1,31 @@
+<div class="main-container">
+  <div class="breadcrumb">
+    <a routerLink="/">Home</a> /
+    <a routerLink="/men">Male</a> /
+    <a routerLink="/men/shoes">Shoes</a>
+  </div>
+
+  <h1 class="page-title">MEN'S SHOES</h1>
+
+  <div class="container">
+    <div class="products-container">
+      <div class="products-grid">
+        <div *ngFor="let product of products" class="product-card">
+          <div class="product-image">
+            <img [src]="product.image" [alt]="product.name" />
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">{{ product.name }}</h3>
+            <div class="product-details">
+              <div class="product-size">
+                <span class="size-label">Size:</span>
+                <span class="size-value">{{ product.size }}</span>
+              </div>
+            </div>
+            <div class="product-price">{{ product.price | number }}₮</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
